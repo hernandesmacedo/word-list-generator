@@ -24,6 +24,19 @@ def remove_spaces_and_small_words(words: list):
         
     return ''.join([word if len(word) > 3 else '' for word in words])
 
+def get_large_words(words: list):
+    """
+    Remove palavras pequenas das palavras dadas como entrada
+
+    Args:
+        words (list): Palavras dadas como entrada
+
+    Returns:
+        list: Lista de palavras dadas como entrada com mais de 3 caracteres
+    """
+        
+    return [word for word in words if len(word) > 3]
+
 def get_acronym(words: list):
     """
     Gera acrônimos a partir das palavras dadas como entrada
