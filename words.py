@@ -22,7 +22,7 @@ def remove_spaces_and_small_words(words: list):
         str: String de entrada sem espaços e sem palavras com menos de 4 caracteres
     """
         
-    return ''.join([word if len(word) > 3 else '' for word in words])
+    return ''.join([word for word in words if len(word) > 3])
 
 def get_large_words(words: list):
     """
@@ -59,7 +59,7 @@ def get_large_words_acronym(words: list):
     Returns:
         str: Acrônimo das palavras com 4 caracteres ou mais dadas como entrada
     """
-    return ''.join([word[0] if len(word) > 3 else '' for word in words])
+    return ''.join([word[0] for word in words if len(word) > 3])
 
 def generate_number_sequences():
     """
