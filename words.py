@@ -1,3 +1,15 @@
+def remove_spaces(words: str):
+    """Remove espaços da entrada dada
+
+    Args:
+        words (str): String dada como entrada
+
+    Returns:
+        str: String de entrada sem espaços
+    """
+        
+    return words.replace(' ', '')
+
 def acronym(words: list):
     """
     Gera acrônimos a partir das palavras dadas como entrada
