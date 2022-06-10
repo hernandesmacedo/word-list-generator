@@ -24,7 +24,7 @@ def remove_spaces_and_small_words(words: list):
         
     return ''.join([word if len(word) > 3 else '' for word in words])
 
-def acronym(words: list):
+def get_acronym(words: list):
     """
     Gera acrônimos a partir das palavras dadas como entrada
 
@@ -36,7 +36,7 @@ def acronym(words: list):
     """
     return ''.join([word[0] for word in words])
 
-def large_words_acronym(words: list):
+def get_large_words_acronym(words: list):
     """
     Função que gera acrônimos a partir das palavras dadas como entrada, considerando apenas palavras com 4 caracteres ou mais
 
