@@ -10,6 +10,18 @@ def remove_spaces(words: str):
         
     return words.replace(' ', '')
 
+def remove_spaces_and_small_words(words: list):
+    """Remove espaços da entrada dada e palavras com menos de 4 caracteres
+
+    Args:
+        words (list): Palavras dadas como entrada
+
+    Returns:
+        str: String de entrada sem espaços e sem palavras com menos de 4 caracteres
+    """
+        
+    return ''.join([word if len(word) > 3 else '' for word in words])
+
 def acronym(words: list):
     """
     Gera acrônimos a partir das palavras dadas como entrada
