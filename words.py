@@ -1,4 +1,5 @@
 import random
+import itertools
 
 def remove_spaces(words: str):
     """Remove espaços da entrada dada
@@ -23,6 +24,24 @@ def remove_spaces_and_small_words(words: list):
     """
         
     return ''.join([word for word in words if len(word) > 3])
+
+def get_words_permutations(words: list):
+    """
+    Obtém todas as permutações possíveis das palavras em uma lista
+
+    Args:
+        words (list): Lista de palavras
+
+    Returns:
+        list: Lista de strings com todas as permutações possíveis das palavras em `words`
+    """
+    
+    permutations_list = []
+    
+    for k in range(2, len(words)):
+        permutations_list += list(itertools.permutations(words, k))
+    
+    return [''.join(words_permutation) for words_permutation in permutations_list]
 
 def get_large_words(words: list):
     """
