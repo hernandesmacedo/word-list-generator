@@ -76,18 +76,6 @@ def get_acronym(words: list):
     """
     return ''.join([word[0] for word in words])
 
-def get_large_words_acronym(words: list):
-    """
-    Função que gera acrônimos a partir das palavras dadas como entrada, considerando apenas palavras com 4 caracteres ou mais
-
-    Args:
-        words (list): Lista de strings contendo as palavras dadas como entrada
-
-    Returns:
-        str: Acrônimo das palavras com 4 caracteres ou mais dadas como entrada
-    """
-    return ''.join([word[0] for word in words if len(word) > 3])
-
 def generate_number_sequences(word: str):
     """
     Gera sequências numéricas aleatórias e não aleatórias.
@@ -127,7 +115,7 @@ def main():
     output_file.write(acronym + '\n')
     
     # Geração de acrônimo das palavras grandes
-    large_words_acronym = get_large_words_acronym(input_words)
+    large_words_acronym = get_acronym(large_words)
     output_file.write(large_words_acronym + '\n')
     
     # Geração de permutações com as palavras de entrada
