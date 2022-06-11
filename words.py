@@ -14,18 +14,6 @@ def remove_spaces(words: str):
         
     return words.replace(' ', '')
 
-def remove_spaces_and_small_words(words: list):
-    """Remove espaços da entrada dada e palavras com menos de 4 caracteres
-
-    Args:
-        words (list): Palavras dadas como entrada
-
-    Returns:
-        str: String de entrada sem espaços e sem palavras com menos de 4 caracteres
-    """
-        
-    return ''.join([word for word in words if len(word) > 3])
-
 def get_words_permutations(words: list):
     """
     Obtém todas as permutações possíveis das palavras em uma lista
@@ -39,7 +27,7 @@ def get_words_permutations(words: list):
     
     permutations_list = []
     
-    for k in range(2, len(words)):
+    for k in range(1, len(words) + 1):
         permutations_list += list(itertools.permutations(words, k))
     
     return [''.join(words_permutation) for words_permutation in permutations_list]
@@ -113,10 +101,6 @@ def main():
     
     # Obtenção de palavras grandes
     large_words = get_large_words(input_words)
-    
-    # Geração de palavras individuais
-    for word in large_words:
-        output_file.write(word + '\n')
     
     # Geração de permutações com as palavras de entrada
     words_permutations = get_words_permutations(large_words)
