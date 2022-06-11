@@ -1,4 +1,5 @@
 import random
+from datetime import datetime
 import itertools
 
 def remove_spaces(words: str):
@@ -104,3 +105,16 @@ def generate_number_sequences():
     
     for i in range(5):
         print(''.join([str(number) for number in (list(range(i, i + 6)))]))
+
+def main():
+    print("Digite a(s) palavra(s) de entrada:")
+    input_string = input()
+    input_words = input_string.split()
+    
+    output_file_name = 'wordlist_' + datetime.now().strftime("%Y%m%d_%H%M%S") + '.txt'
+    global output_file
+    output_file = open(output_file_name, mode='w')
+    
+    output_file.close()
+
+main()
