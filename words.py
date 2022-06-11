@@ -21,18 +21,6 @@ def replace_special_characters(words: str):
     
     return words
 
-def remove_spaces(words: str):
-    """Remove espaços da entrada dada
-
-    Args:
-        words (str): String dada como entrada
-
-    Returns:
-        str: String de entrada sem espaços
-    """
-        
-    return words.replace(' ', '')
-
 def get_words_permutations(words: list):
     """
     Obtém todas as permutações possíveis das palavras em uma lista
@@ -124,7 +112,7 @@ def main():
         output_file.write(words_permutation + '\n')
         
     # Geração de palavras da entrada sem espaços
-    no_whitespace_entry = remove_spaces(input_string)
+    no_whitespace_entry = input_string.replace(' ', '')
     output_file.write(no_whitespace_entry + '\n')
     
     
