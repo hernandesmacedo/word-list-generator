@@ -21,23 +21,26 @@ def replace_special_characters(words: str):
     
     return words
 
-def get_words_permutations(words: list):
+def get_permutations(words: list):
     """
-    Obtém todas as permutações possíveis das palavras em uma lista
+    Obtém todas as permutações possíveis das palavras em uma lista e seus acrônimos
 
     Args:
         words (list): Lista de palavras
 
     Returns:
-        list: Lista de strings com todas as permutações possíveis das palavras em `words`
+        list, list: Lista de acrônimo das permutações e lista das permutações das palavras em `words`
     """
     
+    permutations_acronym_list = []
     permutations_list = []
     
     for k in range(1, len(words) + 1):
-        permutations_list += list(itertools.permutations(words, k))
+        new_list = list(itertools.permutations(words, k))
+        permutations_acronym_list.append(new_list[0])
+        permutations_list += new_list
     
-    return [''.join(words_permutation) for words_permutation in permutations_list]
+    return [permutations_acronym for permutations_acronym in permutations_acronym_list if len(permutations_acronym) > 1], [''.join(words_permutation) for words_permutation in permutations_list]
 
 def get_large_words(words: list):
     """
@@ -102,12 +105,13 @@ def main():
     acronym = get_acronym(input_words)
     output_file.write(acronym + '\n')
     
-    # Geração de acrônimo das palavras grandes
-    large_words_acronym = get_acronym(large_words)
-    output_file.write(large_words_acronym + '\n')
+    # Geração de acrônimo e permutações das palavras grandes da entrada
+    permutations_acronym_list, words_permutations = get_permutations(large_words)
     
-    # Geração de permutações com as palavras de entrada
-    words_permutations = get_words_permutations(large_words)
+    for permutations_acronym in permutations_acronym_list:
+        large_words_acronym = get_acronym(permutations_acronym)
+        output_file.write(large_words_acronym + '\n')
+    
     for words_permutation in words_permutations:
         output_file.write(words_permutation + '\n')
         
