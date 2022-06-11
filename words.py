@@ -105,8 +105,8 @@ def generate_number_sequences(word: str):
     for i in range(5):
         output_file.write(word + ''.join([str(number) for number in (list(range(i, i + 6)))]) + '\n')
     
-    # Geração de 2000 números aleatórios de 100 a 99999999
-    for i in range(2000):
+    # Geração de 1000 números aleatórios de 100 a 99999999
+    for i in range(1000):
         output_file.write(word + str(random.randint(100,99999999)) + '\n')
 
 def main():
