@@ -2,6 +2,25 @@ import random
 from datetime import datetime
 import itertools
 
+def replace_special_characters(words: str):
+    """
+    Substitui caracteres especiais de uma string por caracteres comuns
+
+    Args:
+        words (str): Entrada a ser analisada
+
+    Returns:
+        str: Entrada com caracteres especiais substituidos
+    """
+    words = words.replace('ç', 'c')
+    words = words.replace('á', 'a').replace('à', 'a').replace('ã', 'a').replace('â', 'a')
+    words = words.replace('é', 'e').replace('ê', 'e')
+    words = words.replace('í', 'i').replace('î', 'i')
+    words = words.replace('ó', 'o').replace('õ', 'o').replace('ô', 'o')
+    words = words.replace('ú', 'u').replace('û', 'u')
+    
+    return words
+
 def remove_spaces(words: str):
     """Remove espaços da entrada dada
 
@@ -93,6 +112,7 @@ def generate_number_sequences(word: str):
 def main():
     print("Digite a(s) palavra(s) de entrada:")
     input_string = input()
+    input_string = replace_special_characters(input_string)
     input_words = input_string.split()
     
     output_file_name = 'wordlist_' + datetime.now().strftime("%Y%m%d_%H%M%S") + '.txt'
