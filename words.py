@@ -81,30 +81,26 @@ def get_large_words_acronym(words: list):
     """
     return ''.join([word[0] for word in words if len(word) > 3])
 
-def generate_number_sequences():
+def generate_number_sequences(word: str):
     """
     Gera sequências numéricas aleatórias e não aleatórias.
     """
     
-    # Sequencias aleatórias        
-    for i in range(3000):
-        print(random.randint(1000,10000))
-        
-    for i in range(3000):
-        print(random.randint(10000,100000))
-        
-    for i in range(3000):
-        print(random.randint(100000,1000000))
-        
-    # Sequencias não aleatórias
+    # Geração de 7 sequências numéricas ordenadas de tamanho 4
     for i in range(7):
-        print(''.join([str(number) for number in (list(range(i, i + 4)))]))
+        output_file.write(word + ''.join([str(number) for number in (list(range(i, i + 4)))]) + '\n')
         
+    # Geração de 6 sequências numéricas ordenadas de tamanho 5
     for i in range(6):
-        print(''.join([str(number) for number in (list(range(i, i + 5)))]))
+        output_file.write(word + ''.join([str(number) for number in (list(range(i, i + 5)))]) + '\n')
     
+    # Geração de 5 sequências numéricas ordenadas de tamanho 6
     for i in range(5):
-        print(''.join([str(number) for number in (list(range(i, i + 6)))]))
+        output_file.write(word + ''.join([str(number) for number in (list(range(i, i + 6)))]) + '\n')
+    
+    # Geração de 2000 números aleatórios de 100 a 99999999
+    for i in range(2000):
+        output_file.write(word + str(random.randint(100,99999999)) + '\n')
 
 def main():
     print("Digite a(s) palavra(s) de entrada:")
