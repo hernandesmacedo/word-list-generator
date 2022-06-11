@@ -111,6 +111,48 @@ def main():
     global output_file
     output_file = open(output_file_name, mode='w')
     
+    # Obtenção de palavras grandes
+    large_words = get_large_words(input_words)
+    
+    # Geração de palavras individuais
+    for word in large_words:
+        output_file.write(word + '\n')
+    
+    # Geração de permutações com as palavras de entrada
+    words_permutations = get_words_permutations(large_words)
+    for words_permutation in words_permutations:
+        output_file.write(words_permutation + '\n')
+        
+    # Geração de palavras da entrada sem espaços
+    no_whitespace_entry = remove_spaces(input_string)
+    output_file.write(no_whitespace_entry + '\n')
+    
+    # Geração de acrônimo
+    acronym = get_acronym(input_words)
+    output_file.write(acronym + '\n')
+    
+    # Geração de acrônimo das palavras grandes
+    large_words_acronym = get_large_words_acronym(input_words)
+    output_file.write(large_words_acronym + '\n')
+    
+    
+    # Associação das palavras individuais à sequências numéricas
+    for word in large_words:
+        generate_number_sequences(word)
+        
+    # Associação das permutações de palavras à sequências numéricas
+    for words_permutation in words_permutations:
+        generate_number_sequences(words_permutation)
+    
+    # Associação do acrônimo à sequências numéricas
+    generate_number_sequences(acronym)
+    
+    # Associação do acrônimo das palavras grandes à sequências numéricas
+    generate_number_sequences(large_words_acronym)
+    
+    # Associação das palavras da entrada sem espaços à sequências numéricas
+    generate_number_sequences(no_whitespace_entry)
+    
     output_file.close()
 
 main()
