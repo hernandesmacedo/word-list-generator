@@ -101,9 +101,10 @@ def main():
     # Obtenção de palavras grandes
     large_words = get_large_words(input_words)
     
-    # Geração de acrônimo
-    acronym = get_acronym(input_words)
-    output_file.write(acronym + '\n')
+    # Geração de acrônimo de todas as palavras da entrada, caso exista palavras pequenas
+    if len(input_words) != len(large_words):
+        acronym = get_acronym(input_words)
+        output_file.write(acronym + '\n')
     
     # Geração de acrônimo e permutações das palavras grandes da entrada
     permutations_acronym_list, words_permutations = get_permutations(large_words)
@@ -115,9 +116,10 @@ def main():
     for words_permutation in words_permutations:
         output_file.write(words_permutation + '\n')
         
-    # Geração de palavras da entrada sem espaços
-    no_whitespace_entry = input_string.replace(' ', '')
-    output_file.write(no_whitespace_entry + '\n')
+    # Geração de palavras da entrada sem espaços, caso exista palavras pequenas
+    if len(input_words) != len(large_words):
+        no_whitespace_entry = input_string.replace(' ', '')
+        output_file.write(no_whitespace_entry + '\n')
     
     
     # Associação das palavras individuais à sequências numéricas
@@ -128,14 +130,16 @@ def main():
     for words_permutation in words_permutations:
         generate_number_sequences(words_permutation)
     
-    # Associação do acrônimo à sequências numéricas
-    generate_number_sequences(acronym)
+    # Associação do acrônimo de todas as palavras da entrada à sequências numéricas, caso exista palavras pequenas
+    if len(input_words) != len(large_words):
+        generate_number_sequences(acronym)
     
     # Associação do acrônimo das palavras grandes à sequências numéricas
     generate_number_sequences(large_words_acronym)
     
-    # Associação das palavras da entrada sem espaços à sequências numéricas
-    generate_number_sequences(no_whitespace_entry)
+    # Associação das palavras da entrada sem espaços à sequências numéricas, caso exista palavras pequenas
+    if len(input_words) != len(large_words):
+        generate_number_sequences(no_whitespace_entry)
     
     output_file.close()
 
