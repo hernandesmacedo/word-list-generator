@@ -122,6 +122,14 @@ def main():
     # Obtenção de palavras grandes
     large_words = get_large_words(input_words)
     
+    # Geração de acrônimo
+    acronym = get_acronym(input_words)
+    output_file.write(acronym + '\n')
+    
+    # Geração de acrônimo das palavras grandes
+    large_words_acronym = get_large_words_acronym(input_words)
+    output_file.write(large_words_acronym + '\n')
+    
     # Geração de permutações com as palavras de entrada
     words_permutations = get_words_permutations(large_words)
     for words_permutation in words_permutations:
@@ -130,14 +138,6 @@ def main():
     # Geração de palavras da entrada sem espaços
     no_whitespace_entry = remove_spaces(input_string)
     output_file.write(no_whitespace_entry + '\n')
-    
-    # Geração de acrônimo
-    acronym = get_acronym(input_words)
-    output_file.write(acronym + '\n')
-    
-    # Geração de acrônimo das palavras grandes
-    large_words_acronym = get_large_words_acronym(input_words)
-    output_file.write(large_words_acronym + '\n')
     
     
     # Associação das palavras individuais à sequências numéricas
