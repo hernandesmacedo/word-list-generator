@@ -153,7 +153,8 @@ def main():
         generate_number_sequences(acronym)
     
     # Associação do acrônimo das palavras grandes à sequências numéricas
-    generate_number_sequences(large_words_acronym)
+    if large_words:
+        generate_number_sequences(large_words_acronym)
         
     # Associação das abreviações das palavras à sequências numéricas
     for abbreviations_permutation in abbreviations_permutations:
