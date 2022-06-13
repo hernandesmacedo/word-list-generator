@@ -18,6 +18,7 @@ def replace_special_characters(words: str):
     words = words.replace('í', 'i').replace('î', 'i')
     words = words.replace('ó', 'o').replace('õ', 'o').replace('ô', 'o')
     words = words.replace('ú', 'u').replace('û', 'u')
+    words = words.replace('_', ' ').replace('-', ' ')
     
     return words
 
