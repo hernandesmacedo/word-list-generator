@@ -69,7 +69,7 @@ def get_acronym(words: list):
 
 def generate_number_sequences(word: str):
     """
-    Gera sequências numéricas aleatórias e não aleatórias.
+    Gera sequências numéricas.
     """
     
     # Geração de 7 sequências numéricas ordenadas de tamanho 4
@@ -83,10 +83,6 @@ def generate_number_sequences(word: str):
     # Geração de 5 sequências numéricas ordenadas de tamanho 6
     for i in range(5):
         output_file.write(word + ''.join([str(number) for number in (list(range(i, i + 6)))]) + '\n')
-    
-    # Geração de 1000 números aleatórios de 100 a 99999999
-    for i in range(1000):
-        output_file.write(word + str(random.randint(100,99999999)) + '\n')
 
 def main():
     print("Digite a(s) palavra(s) de entrada:")
