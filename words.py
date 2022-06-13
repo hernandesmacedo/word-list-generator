@@ -41,7 +41,7 @@ def get_permutations(words: list):
         permutations_acronym_list.append(new_list[0])
         permutations_list += new_list
     
-    return [permutations_acronym for permutations_acronym in permutations_acronym_list if len(permutations_acronym) > 1], [''.join(words_permutation) for words_permutation in permutations_list]
+    return [permutations_acronym for permutations_acronym in permutations_acronym_list if len(permutations_acronym) > 1], list(set([''.join(words_permutation) for words_permutation in permutations_list]))
 
 def get_large_words(words: list):
     """
