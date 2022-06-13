@@ -1,9 +1,9 @@
 # word-list-generator
 ## Gerador de lista de palavras em Python
 
-Este algoritmo tem como função a leitura de uma entrada contendo um conjunto de palavras chaves e, a partir delas, gera um arquivo *.txt* como palavras associadas.
+Este algoritmo tem como função a leitura de uma entrada contendo um conjunto de palavras chaves e, a partir delas, gera um arquivo *.txt* com palavras associadas.
 
-Para isso as seguintes estratégias foram tomadas:
+Para isso, as seguintes estratégias foram tomadas:
 
 - Substituição de caracteres acentuados por não acentuados, e de hífens e sublinhados por espaço;
 
