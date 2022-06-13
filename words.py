@@ -98,7 +98,7 @@ def generate_number_sequences(word: str):
         output_file.write(word + ''.join([str(number) for number in (list(range(i, i + 6)))]) + '\n')
 
 def main():
-    print("Digite a(s) palavra(s) de entrada:")
+    print("Digite as palavras de entrada:")
     input_string = input()
     input_string = replace_special_characters(input_string)
     input_words = input_string.split()
@@ -164,5 +164,7 @@ def main():
         generate_number_sequences(no_whitespace_entry)
     
     output_file.close()
+    
+    print('\nPalavras geradas e armazenadas em ' + output_file_name)
 
 main()
