@@ -43,6 +43,19 @@ def get_permutations(words: list):
     
     return [permutations_acronym for permutations_acronym in permutations_acronym_list if len(permutations_acronym) > 1], list(set([''.join(words_permutation) for words_permutation in permutations_list]))
 
+def get_abbreviations(words: list):
+    """
+    Obtém abreviações das palavras com 6 caracteres ou mais em uma lista
+
+    Args:
+        words (list): Lista de palavras
+
+    Returns:
+        list: Lista de abreviações (primeiros 4 caracteres) das palavras com 6 caracteres ou mais em `words`
+    """
+    
+    return [word[:4] for word in words if len(word) > 5]
+
 def get_large_words(words: list):
     """
     Remove palavras pequenas das palavras dadas como entrada
@@ -118,6 +131,14 @@ def main():
         no_whitespace_entry = input_string.replace(' ', '')
         output_file.write(no_whitespace_entry + '\n')
     
+    # Geração de abreviações das palavras grandes da entrada
+    abbreviations = get_abbreviations(large_words)
+    
+    # Geração de permutações das abreviações
+    _, abbreviations_permutations = get_permutations(abbreviations)
+    for abbreviations_permutation in abbreviations_permutations:
+        output_file.write(abbreviations_permutation + '\n')
+
     
     # Associação das palavras individuais à sequências numéricas
     for word in large_words:
@@ -133,6 +154,10 @@ def main():
     
     # Associação do acrônimo das palavras grandes à sequências numéricas
     generate_number_sequences(large_words_acronym)
+        
+    # Associação das abreviações das palavras à sequências numéricas
+    for abbreviations_permutation in abbreviations_permutations:
+        generate_number_sequences(abbreviations_permutation)
     
     # Associação das palavras da entrada sem espaços à sequências numéricas, caso exista palavras pequenas
     if len(input_words) != len(large_words):
