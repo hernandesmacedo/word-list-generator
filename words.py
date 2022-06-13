@@ -139,10 +139,6 @@ def main():
         output_file.write(abbreviations_permutation + '\n')
 
     
-    # Associação das palavras individuais à sequências numéricas
-    for word in large_words:
-        generate_number_sequences(word)
-        
     # Associação das permutações de palavras à sequências numéricas
     for words_permutation in words_permutations:
         generate_number_sequences(words_permutation)
